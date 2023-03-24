@@ -1,27 +1,42 @@
 package com.bridgelapbz.snake;
 
+import java.util.Scanner;
+
 public class SnakeAndLadder {
 
 	public static void main(String args[]) {
-		int diceRoll = (int) (Math.floor(Math.random() * 10) % 6) + 1;
+		
+			// TODO Auto-generated method stub
+			   int playerPosition = 0;
+		        Scanner s = new Scanner(System.in);
+		        System.out.println("Enter Player Name: ");
+		        String playerName = s.next();
+		        int winningPosition = 100;
 
-		System.out.println("Dice the roll" + " " + diceRoll);
-		int option = (int) Math.floor(Math.random() * 10) % 3;
-		int playerPosition = 0;
-		// System.out.println(option);
+		        while (winningPosition > playerPosition) {
 
-		if (option == 0) {
-			playerPosition = playerPosition + 0;
-			System.out.println("Player Are Stop Our Same place");
-		} else if (option == 1) {
-			playerPosition = playerPosition + diceRoll;
-			System.out.println("Player Are Moves Ahead ");
-		} else if (option == 2) {
-			playerPosition = playerPosition - diceRoll;
-			System.out.println("Playe Are Moves Behind");
-			if (playerPosition < 0) {
-				playerPosition = 0;
-			}
-		}
+		            int diceRoll = (int) Math.floor(Math.random() * 10) % 6 + 1;
+		            System.out.println("The Number of dice is:" + diceRoll);
+
+		            int option = (int) Math.floor(Math.random() * 10) % 3;
+
+		            if (option == 0) {
+		                //System.out.println("No Play");
+		                playerPosition += 0;
+		            } else if (option == 1) {
+		                //System.out.println("Ladder");
+		                playerPosition += diceRoll;
+		            } else {
+		                //System.out.println("Snake");
+		                playerPosition -= diceRoll;
+
+		                if (playerPosition < 0) {
+		                    playerPosition = 0;
+		                }
+
+		            }
+		            System.out.println("Player Position is:" + playerPosition);
+
+		        }
 	}
 }
